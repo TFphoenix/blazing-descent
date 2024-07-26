@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://tlx864lxndtx"]
+[gd_scene load_steps=3 format=3 uid="uid://tlx864lxndtx"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://csokmm81exxut" path="res://scenes/planet.tscn" id="1_g3d7s"]
+[ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/background.tscn" id="1_vrvxf"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_vrvxf")]
+
+[node name="Planet" parent="." instance=ExtResource("1_g3d7s")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
