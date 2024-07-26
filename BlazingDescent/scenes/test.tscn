@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://tlx864lxndtx"]
+[gd_scene load_steps=5 format=3 uid="uid://tlx864lxndtx"]
 
 [ext_resource type="PackedScene" uid="uid://csokmm81exxut" path="res://scenes/planet.tscn" id="1_g3d7s"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/background.tscn" id="1_vrvxf"]
+[ext_resource type="PackedScene" uid="uid://b8h5abplkr547" path="res://scenes/atmosphere.tscn" id="3_os174"]
+[ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player_ship.tscn" id="4_6yp45"]
 
 [node name="Test" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_vrvxf")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Planet" parent="." instance=ExtResource("1_g3d7s")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Atmosphere" parent="." instance=ExtResource("3_os174")]
+
+[node name="PlayerShip" parent="." instance=ExtResource("4_6yp45")]
+position = Vector2(711, 393)
