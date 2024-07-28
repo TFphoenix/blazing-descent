@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-
 @export var speed = 100
 @export var target: Marker2D
 @export var threshold = 330
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Look at target
 	look_at(target.position)
 	
@@ -16,9 +15,9 @@ func _physics_process(delta):
 	position = target.position.direction_to(mouse_position) * distance
 	
 	# Move towards target
-	if distance >= threshold:
-		velocity = position.direction_to(target.position) * speed
-	else:
-		velocity = Vector2.ZERO
+	#if distance >= threshold:
+		#velocity = position.direction_to(target.position) * speed
+	#else:
+		#velocity = Vector2.ZERO
 	
 	move_and_slide()

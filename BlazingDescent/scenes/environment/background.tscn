@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv3310yqnj1qf"]
+
+[ext_resource type="Texture2D" uid="uid://ckwnk4mob57mg" path="res://assets/background/space_2.png" id="1_nsskx"]
+[ext_resource type="PackedScene" uid="uid://csokmm81exxut" path="res://scenes/environment/planet.tscn" id="2_wc0cd"]
+
+[node name="Background" type="Node2D"]
+
+[node name="BG1" type="Sprite2D" parent="."]
+position = Vector2(-2048, -2048)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nsskx")
+
+[node name="BG2" type="Sprite2D" parent="."]
+position = Vector2(2048, -2048)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nsskx")
+
+[node name="BG3" type="Sprite2D" parent="."]
+position = Vector2(-2048, 2048)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nsskx")
+
+[node name="BG4" type="Sprite2D" parent="."]
+position = Vector2(2048, 2048)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nsskx")
+
+[node name="Planet" parent="." instance=ExtResource("2_wc0cd")]
