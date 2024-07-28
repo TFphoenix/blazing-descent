@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var level_manager: Node2D
+
+# Movement
 @export var speed = 100
 @export var target: Marker2D
 @export var threshold = 330
@@ -22,5 +25,5 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 
-func on_asteroid_collision():
-	print("OVERHEAT")
+func on_collision(type: Const.CollisionType):
+	level_manager.on_collision(type)

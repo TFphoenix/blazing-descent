@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://tlx864lxndtx"]
+[gd_scene load_steps=8 format=3 uid="uid://tlx864lxndtx"]
 
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_2bkxh"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="1_xq4m1"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="2_y3e84"]
 [ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_1wthf"]
@@ -9,6 +10,10 @@
 
 [node name="TestScene" type="Node2D"]
 
+[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("hud")]
+script = ExtResource("1_2bkxh")
+hud = NodePath("../HUD")
+
 [node name="Background" parent="." instance=ExtResource("1_xq4m1")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("2_y3e84")
@@ -16,8 +21,9 @@ zoom_speed = 500
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="PlayerShip" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_1wthf")]
+[node name="PlayerShip" parent="." node_paths=PackedStringArray("level_manager", "target") instance=ExtResource("4_1wthf")]
 position = Vector2(400, 2.08165e-12)
+level_manager = NodePath("../LevelManager")
 target = NodePath("../Target")
 threshold = 200
 

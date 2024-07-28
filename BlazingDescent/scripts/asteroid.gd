@@ -35,5 +35,5 @@ func _on_lifespan_end():
 
 
 func _on_area_2d_body_entered(body):
-	body.on_asteroid_collision()
+	body.on_collision(Const.CollisionType.ASTEROID)
 	queue_free()
