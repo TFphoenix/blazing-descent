@@ -3556,3 +3556,4 @@ position = Vector2(-7, 8)
 shape = SubResource("CircleShape2D_jcsnc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_lifespan_end"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

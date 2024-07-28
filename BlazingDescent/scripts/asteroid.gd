@@ -32,3 +32,8 @@ func _process(delta):
 
 func _on_lifespan_end():
 	queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	body.on_asteroid_collision()
+	queue_free()

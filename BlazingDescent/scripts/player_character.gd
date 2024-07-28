@@ -21,3 +21,6 @@ func _physics_process(_delta):
 		#velocity = Vector2.ZERO
 	
 	move_and_slide()
+
+func on_asteroid_collision():
+	print("OVERHEAT")
