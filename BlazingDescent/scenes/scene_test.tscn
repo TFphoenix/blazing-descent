@@ -17,6 +17,7 @@
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_1wthf")]
 position = Vector2(589, -264)
+speed = 10
 target = NodePath("../Target")
 
 [node name="Target" type="Marker2D" parent="."]

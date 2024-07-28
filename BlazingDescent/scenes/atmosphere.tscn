@@ -11,6 +11,7 @@
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_t0ur8")
 scale = Vector2(100, 100)
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 visible = false
