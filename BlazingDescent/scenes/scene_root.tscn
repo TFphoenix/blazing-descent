@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://be3cirn3e38bj"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_8sjji"]
+[ext_resource type="PackedScene" uid="uid://b28jrk7v4sfe5" path="res://scenes/ui/main_menu.tscn" id="2_4let8"]
+[ext_resource type="PackedScene" uid="uid://di8meadyggn2n" path="res://scenes/levels/level1.tscn" id="2_6fp1s"]
+
+[node name="RootScene" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_8sjji")
+levels = [ExtResource("2_4let8"), ExtResource("2_6fp1s")]

@@ -1,7 +1,10 @@
 extends Node2D
+class_name LevelManager
 
 # General
+const PROGRESS_RATE = 0.015
 @export var hud: Control
+var level_ended = false
 
 # Atmospheres
 @export var atmospheres = [
@@ -17,14 +20,16 @@ var next_atmosphere = 1
 var progress = 0.0:
 	set(value):
 		progress = clamp(value, 0.0, 1.0)
+		if progress >= 1: on_level_completed()
 var overheat = 0.0:
 	set(value):
 		overheat = clamp(value, 0.0, 1.0)
+		if overheat >= 1: on_level_failed()
 
 
 func _process(delta):
 	# Update progress
-	progress += 0.025 * delta
+	progress += PROGRESS_RATE * delta
 	hud.update_progress(progress)
 	
 	# Update overheat
@@ -41,3 +46,15 @@ func _process(delta):
 func on_collision(type: Const.CollisionType):
 	overheat += Const.OVERHEAT[type]
 	hud.update_overheat(overheat)
+
+
+func on_level_completed():
+	if level_ended: return
+
+	level_ended = true
+
+
+func on_level_failed():
+	if level_ended: return
+	
+	level_ended = true
