@@ -84,11 +84,13 @@ func end_level():
 func _on_level_restarted():
 	progress = 0.0
 	overheat = 0.0
-	if background: background.reset_scale()
+	if background:
+		background.reset_scale()
+		background.lock_scale = false
 	for spawner in spawners:
 		spawner.reset()
 	level_ended = false
-#
+
 
 func _on_next_level():
 	next_level.emit()
