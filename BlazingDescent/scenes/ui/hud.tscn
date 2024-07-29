@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bylnk5ku5vrtg"]
+[gd_scene load_steps=6 format=3 uid="uid://bylnk5ku5vrtg"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_jdkka"]
 [ext_resource type="Texture2D" uid="uid://bta8x1okbmfds" path="res://assets/ui/overheat_under.png" id="2_bk8k5"]
@@ -8,6 +8,9 @@
 font_size = 32
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tiwnc"]
+font_size = 40
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -108,3 +111,120 @@ layout_mode = 2
 text = "Level 10"
 label_settings = SubResource("LabelSettings_14i4i")
 horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = -11.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Restart" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Restart Level"
+
+[node name="Button_End" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+text = "End Run"
+
+[node name="Dialog_End" type="ConfirmationDialog" parent="."]
+initial_position = 2
+size = Vector2i(312, 100)
+ok_button_text = "End Run"
+dialog_text = "Are you sure you wish to end this run?"
+
+[node name="End_Pass" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.389822, 0.74705, 0.375884, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End_Pass"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -45.0
+offset_right = 228.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="End_Pass/VBoxContainer"]
+layout_mode = 2
+text = "SUCCESSFULLY LANDED"
+label_settings = SubResource("LabelSettings_tiwnc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_NextLevel" type="Button" parent="End_Pass/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+text = "Next Level"
+
+[node name="End_Fail" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.992974, 0.453567, 0.497692, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End_Fail"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -45.0
+offset_right = 228.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="End_Fail/VBoxContainer"]
+layout_mode = 2
+text = "OVERHEATED"
+label_settings = SubResource("LabelSettings_tiwnc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="End_Fail/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button_Restart" type="Button" parent="End_Fail/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+text = "Restart Level"
+
+[node name="Button_End" type="Button" parent="End_Fail/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+text = "End Run"
+
+[connection signal="pressed" from="VBoxContainer2/Button_Restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button_End" to="." method="_on_button_end_pressed"]
+[connection signal="pressed" from="End_Pass/VBoxContainer/Button_NextLevel" to="." method="_on_button_next_level_pressed"]
+[connection signal="pressed" from="End_Fail/VBoxContainer/HBoxContainer/Button_Restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="End_Fail/VBoxContainer/HBoxContainer/Button_End" to="." method="_on_button_end_pressed"]

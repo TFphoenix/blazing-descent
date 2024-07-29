@@ -1,18 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://03jbb45epl4c"]
+[gd_scene load_steps=9 format=3 uid="uid://03jbb45epl4c"]
 
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_fls0v"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_kkt0t"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="3_eaqp2"]
 [ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_8ymtb"]
-[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/obstacles/asteroids_spawner.tscn" id="5_ilfdr"]
-[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/obstacles/asteroid.tscn" id="6_sm22q"]
+[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/objects/spawner.tscn" id="5_fcake"]
+[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/objects/asteroid.tscn" id="6_udpvu"]
+[ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/objects/repair_kit.tscn" id="7_5hvb2"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="7_jnyls"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("hud")]
+[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("hud", "background", "spawners")]
 script = ExtResource("1_fls0v")
 hud = NodePath("../HUD")
+background = NodePath("../Background")
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner")]
 
 [node name="Background" parent="." instance=ExtResource("2_kkt0t")]
 scale = Vector2(0.25, 0.25)
@@ -27,12 +30,21 @@ threshold = 200
 
 [node name="Target" type="Marker2D" parent="."]
 
-[node name="AsteroidsSpawner" parent="." node_paths=PackedStringArray("origin") instance=ExtResource("5_ilfdr")]
-asteroid_scene = ExtResource("6_sm22q")
-origin = NodePath("../Target")
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="AsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_fcake")]
+origin = NodePath("../../Target")
 should_spawn = true
 spawn_rate = 0.4
 spawn_iteration_max_entities = 2
+entity_scene = ExtResource("6_udpvu")
+
+[node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_fcake")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 5.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("7_5hvb2")
 
 [node name="HUD" parent="." instance=ExtResource("7_jnyls")]
 offset_left = -960.0

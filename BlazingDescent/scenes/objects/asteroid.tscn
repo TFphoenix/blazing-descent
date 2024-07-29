@@ -1,11 +1,11 @@
 [gd_scene load_steps=509 format=3 uid="uid://biecpdyfl0mr7"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_i0607"]
-[ext_resource type="Texture2D" uid="uid://dmxcb8ajlaq0b" path="res://assets/asteroids/asteroid_1.png" id="1_n7etp"]
-[ext_resource type="Texture2D" uid="uid://rx74aq4k41qg" path="res://assets/asteroids/asteroid_2.png" id="2_ky1kt"]
-[ext_resource type="Texture2D" uid="uid://q8m825bujsdc" path="res://assets/asteroids/asteroid_3.png" id="3_i7l6t"]
-[ext_resource type="Texture2D" uid="uid://cyvdmxjredxif" path="res://assets/asteroids/asteroid_4.png" id="4_e76hw"]
-[ext_resource type="Texture2D" uid="uid://bkbjbhrh7fu7c" path="res://assets/asteroids/asteroid_5.png" id="5_wn5s7"]
+[ext_resource type="Texture2D" uid="uid://dmxcb8ajlaq0b" path="res://assets/objects/asteroid_1.png" id="1_n7etp"]
+[ext_resource type="Texture2D" uid="uid://rx74aq4k41qg" path="res://assets/objects/asteroid_2.png" id="2_ky1kt"]
+[ext_resource type="Texture2D" uid="uid://q8m825bujsdc" path="res://assets/objects/asteroid_3.png" id="3_i7l6t"]
+[ext_resource type="Texture2D" uid="uid://cyvdmxjredxif" path="res://assets/objects/asteroid_4.png" id="4_e76hw"]
+[ext_resource type="Texture2D" uid="uid://bkbjbhrh7fu7c" path="res://assets/objects/asteroid_5.png" id="5_wn5s7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kldfv"]
 atlas = ExtResource("1_n7etp")
