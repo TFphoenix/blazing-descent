@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bylnk5ku5vrtg"]
+[gd_scene load_steps=5 format=3 uid="uid://bylnk5ku5vrtg"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_jdkka"]
+[ext_resource type="Texture2D" uid="uid://bta8x1okbmfds" path="res://assets/ui/overheat_under.png" id="2_bk8k5"]
+[ext_resource type="Texture2D" uid="uid://h6uls85xw6gu" path="res://assets/ui/overheat_progress.png" id="3_ct4dx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_14i4i"]
 font_size = 32
@@ -26,13 +28,53 @@ offset_bottom = -40.0
 grow_vertical = 2
 alignment = 1
 
-[node name="Bar_Overheat" type="ProgressBar" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 93.0
+offset_bottom = 63.0002
+grow_vertical = 2
+rotation = -1.5708
+text = "OVERHEAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar_Overheat" type="TextureProgressBar" parent="HBoxContainer"]
 custom_minimum_size = Vector2(32, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 1
 max_value = 1.0
+step = 0.01
 fill_mode = 3
+texture_under = ExtResource("2_bk8k5")
+texture_progress = ExtResource("3_ct4dx")
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 93.0
+offset_bottom = 63.0002
+grow_vertical = 2
+rotation = -1.5708
+text = "PROGRESS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Bar_Progress" type="VSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(32, 2.08165e-12)
