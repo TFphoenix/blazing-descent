@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bylvwxtbypcc1"]
+
+[ext_resource type="Texture2D" uid="uid://ckwnk4mob57mg" path="res://assets/background/space_2.png" id="1_ntno4"]
+[ext_resource type="Script" path="res://scripts/finish_game.gd" id="1_xqfk1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1oflo"]
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FinishGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqfk1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ntno4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SUCCESSFULLY LANDED ON ALL PLANETS"
+label_settings = SubResource("LabelSettings_1oflo")
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Landing Time"
+label_settings = SubResource("LabelSettings_1oflo")
+horizontal_alignment = 1
+
+[node name="Label_Timer" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "00:00:000"
+label_settings = SubResource("LabelSettings_1oflo")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Button_MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button_MainMenu" to="." method="_on_button_main_menu_pressed"]

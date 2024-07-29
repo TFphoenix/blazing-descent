@@ -54,7 +54,7 @@ func _process(delta):
 	overheat += atmospheres[current_atmosphere]['overheat_rate'] * delta
 	
 	# Next atmosphere
-	if next_atmosphere < atmospheres.size() and progress >= atmospheres[next_atmosphere]:
+	if next_atmosphere < atmospheres.size() and progress >= atmospheres[next_atmosphere]['threshold']:
 		current_atmosphere = next_atmosphere
 		next_atmosphere += 1
 		

@@ -16,11 +16,21 @@ script = ExtResource("1_hn87g")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
 spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner")]
+atmospheres = [{
+"overheat_rate": 0.01,
+"threshold": 0.0
+}, {
+"overheat_rate": 0.02,
+"threshold": 0.5
+}, {
+"overheat_rate": 0.03,
+"threshold": 0.75
+}]
 
 [node name="Background" parent="." instance=ExtResource("2_d4hxf")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("3_jrtoh")
-zoom_speed = 500
+zoom_speed = 800
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("level_manager", "target") instance=ExtResource("4_1sx1e")]
 position = Vector2(400, 2.08165e-12)
@@ -35,9 +45,11 @@ threshold = 200
 [node name="AsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_thuqu")]
 origin = NodePath("../../Target")
 should_spawn = true
-spawn_rate = 0.4
-spawn_iteration_max_entities = 2
+spawn_rate = 0.3
 entity_scene = ExtResource("6_moykx")
+entity_lifespan = 7.0
+entity_min_speed = 200.0
+entity_max_speed = 350.0
 
 [node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_thuqu")]
 origin = NodePath("../../Target")

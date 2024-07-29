@@ -21,7 +21,7 @@ progress_rate = 0.05
 [node name="Background" parent="." instance=ExtResource("2_kkt0t")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("3_eaqp2")
-zoom_speed = 500
+zoom_speed = 2000
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("level_manager", "target") instance=ExtResource("4_8ymtb")]
 position = Vector2(400, 2.08165e-12)
@@ -39,6 +39,7 @@ should_spawn = true
 spawn_rate = 0.4
 spawn_iteration_max_entities = 2
 entity_scene = ExtResource("6_udpvu")
+entity_lifespan = 7.0
 
 [node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_fcake")]
 origin = NodePath("../../Target")
@@ -46,6 +47,7 @@ should_spawn = true
 spawn_rate = 5.0
 spawn_iteration_max_entities = 1
 entity_scene = ExtResource("7_5hvb2")
+entity_lifespan = 7.0
 
 [node name="HUD" parent="." instance=ExtResource("7_jnyls")]
 offset_left = -960.0

@@ -102,7 +102,7 @@ grow_horizontal = 0
 
 [node name="Label_Timer" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Time: 00:00:00"
+text = "Time: 00:00:000"
 label_settings = SubResource("LabelSettings_14i4i")
 horizontal_alignment = 2
 
@@ -129,11 +129,13 @@ grow_vertical = 0
 [node name="Button_Restart" type="Button" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Restart Level"
 
 [node name="Button_End" type="Button" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "End Run"
 
 [node name="Dialog_End" type="ConfirmationDialog" parent="."]
@@ -176,6 +178,7 @@ vertical_alignment = 1
 [node name="Button_NextLevel" type="Button" parent="End_Pass/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Next Level"
 
 [node name="End_Fail" type="ColorRect" parent="."]
@@ -216,11 +219,13 @@ size_flags_horizontal = 4
 [node name="Button_Restart" type="Button" parent="End_Fail/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Restart Level"
 
 [node name="Button_End" type="Button" parent="End_Fail/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "End Run"
 
 [connection signal="pressed" from="VBoxContainer2/Button_Restart" to="." method="_on_button_restart_pressed"]
