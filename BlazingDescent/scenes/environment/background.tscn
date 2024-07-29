@@ -2148,4 +2148,3 @@ texture = ExtResource("1_nsskx")
 [node name="Planet" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fn4ea")
 animation = &"planet_1"
-autoplay = "planet_1"

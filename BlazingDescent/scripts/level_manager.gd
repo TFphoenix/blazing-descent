@@ -11,6 +11,10 @@ signal end_run
 signal next_level
 
 var level_ended = false
+var level_idx = 1:
+	set(value):
+		level_idx = value
+		if background: background.set_planet(value)
 
 # Atmospheres
 @export var progress_rate = 0.02
