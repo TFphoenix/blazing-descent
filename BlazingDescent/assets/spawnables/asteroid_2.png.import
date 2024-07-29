@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nbhq1pd58s12"
-path="res://.godot/imported/repair_kit.png-379129c46532748c285bf54df7cfcdbb.ctex"
+uid="uid://rx74aq4k41qg"
+path="res://.godot/imported/asteroid_2.png-67bd6fd33f10e769c0860aad923ce8bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/repair_kit.png"
-dest_files=["res://.godot/imported/repair_kit.png-379129c46532748c285bf54df7cfcdbb.ctex"]
+source_file="res://assets/spawnables/asteroid_2.png"
+dest_files=["res://.godot/imported/asteroid_2.png-67bd6fd33f10e769c0860aad923ce8bd.ctex"]
 
 [params]
 

@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="1_xq4m1"]
 [ext_resource type="Script" path="res://scripts/environment/background.gd" id="2_y3e84"]
 [ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_1wthf"]
-[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/objects/spawner.tscn" id="5_8he12"]
+[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/spawnables/spawner.tscn" id="5_8he12"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="6_1n5tq"]
-[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/objects/asteroid.tscn" id="6_6njiw"]
+[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/spawnables/asteroid.tscn" id="6_6njiw"]
 
 [node name="TestScene" type="Node2D"]
 

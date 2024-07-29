@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://deea4scy76i2d"]
 
-[ext_resource type="Script" path="res://scripts/objects/repair_kit.gd" id="1_52rro"]
-[ext_resource type="Texture2D" uid="uid://nbhq1pd58s12" path="res://assets/objects/repair_kit.png" id="1_qqkcx"]
+[ext_resource type="Texture2D" uid="uid://nbhq1pd58s12" path="res://assets/spawnables/repair_kit.png" id="1_qqkcx"]
+[ext_resource type="Script" path="res://scripts/spawnables/repair_kit.gd" id="1_sjsoj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jcsnc"]
 radius = 20.0
@@ -11,7 +11,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="RepairKit" type="Node2D"]
-script = ExtResource("1_52rro")
+script = ExtResource("1_sjsoj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qqkcx")
