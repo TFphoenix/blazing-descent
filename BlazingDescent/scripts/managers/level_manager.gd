@@ -9,6 +9,7 @@ class_name LevelManager
 # Signals
 signal end_run
 signal next_level
+signal level_passed
 
 # Level
 var level_ended = false
@@ -50,12 +51,16 @@ const SFX_LANDING = preload("res://assets/sfx/landing.wav")
 const SFX_PICKUP_REPAIR = preload("res://assets/sfx/pickup_repair.wav")
 const SFX_PICKUP_SPEED = preload("res://assets/sfx/pickup_speed.wav")
 const SFX_FAIL = preload("res://assets/sfx/fail.wav")
+const SFX_ENGINE_NORMAL = preload("res://assets/sfx/engine_normal.mp3")
 
 
 func _ready():
 	hud.restart_level.connect(_on_level_restarted)
 	hud.next_level.connect(_on_next_level)
 	hud.end_run.connect(_on_end_run)
+	
+	sfx_stream_ship.stream = SFX_ENGINE_NORMAL
+	sfx_stream_ship.play()
 
 
 func _process(delta):
@@ -87,8 +92,9 @@ func on_collision(type: Const.CollisionType):
 
 func _on_level_passed():
 	if level_ended: return
-	end_level()
 	
+	end_level()
+	level_passed.emit()
 	hud.display_passed()
 	
 	sfx_stream_ship.stream = SFX_LANDING
@@ -97,8 +103,8 @@ func _on_level_passed():
 
 func _on_level_failed():
 	if level_ended: return
-	end_level()
 	
+	end_level()
 	hud.display_failed()
 	
 	sfx_stream_ship.stream = SFX_FAIL
@@ -119,6 +125,9 @@ func _on_level_restarted():
 	for spawner in spawners:
 		spawner.reset()
 	level_ended = false
+	
+	sfx_stream_ship.stream = SFX_ENGINE_NORMAL
+	sfx_stream_ship.play()
 
 
 func _on_next_level():

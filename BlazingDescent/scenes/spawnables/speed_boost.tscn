@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://diu17l5finy3s"]
 
-[ext_resource type="Script" path="res://scripts/spawnables/repair_kit.gd" id="1_5mpxe"]
+[ext_resource type="Script" path="res://scripts/spawnables/speed_boost.gd" id="1_wimhk"]
 [ext_resource type="Texture2D" uid="uid://6n62grseih6n" path="res://assets/spawnables/booster.png" id="2_pmips"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uu2fd"]
@@ -60,14 +60,14 @@ radius = 20.0
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="RepairKit" type="Node2D"]
-script = ExtResource("1_5mpxe")
+[node name="SpeedBoost" type="Node2D"]
+script = ExtResource("1_wimhk")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.4375, 1.4375)
 sprite_frames = SubResource("SpriteFrames_giwod")
 autoplay = "default"
-frame_progress = 0.318554
+frame_progress = 0.459437
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -74,10 +74,15 @@ func next_level():
 	if level_manager:
 		level_manager.end_run.connect(_on_end_run)
 		level_manager.next_level.connect(_on_next_level)
+		level_manager.level_passed.connect(_on_level_passed)
 		level_manager.level_idx = current_level
 		
 	music_stream.stream = MUSIC_GAME
 	music_stream.play()
+
+
+func _on_level_passed():
+	music_stream.stop()
 
 
 func _on_end_run():

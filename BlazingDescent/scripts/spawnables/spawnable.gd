@@ -1,11 +1,11 @@
 extends Node2D
 class_name Spawnable
 
-const ZOOM_STEP = 0.0001
+const ZOOM_STEP = 0.1
 
 var speed = 100.0
 var direction = Vector2.ZERO
-var zoom_speed = 5000.0
+var zoom_speed = 5.0
 var initial_scale = 0.1
 var max_scale = 1.0
 

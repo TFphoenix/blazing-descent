@@ -3,9 +3,9 @@ extends Spawnable
 
 func initialize(spawn_location, spawn_direction, spawn_speed, lifespan):
 	super.initialize(spawn_location, spawn_direction, spawn_speed, lifespan)
-	zoom_speed *= 10.0
-	initial_scale = 0.5
-	max_scale = 5.0
+	zoom_speed *= 1.5
+	initial_scale = 0.2
+	max_scale = 3.0
 	
 	# Determine asteroid type
 	var random_type = "big_asteroid_%s" % str(randi_range(1, 3))
