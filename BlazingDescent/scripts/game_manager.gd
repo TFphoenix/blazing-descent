@@ -40,7 +40,9 @@ func main_menu():
 
 
 func next_level():
-	# TODO: Check last level condition
+	if current_level == levels.size() - 1:
+		final_level()
+		return
 	
 	current_scene.queue_free()
 	current_level += 1
@@ -56,9 +58,14 @@ func next_level():
 		level_manager.next_level.connect(_on_next_level)
 
 
+func final_level():
+	main_menu()
+	# TODO: ...
+
+
 func _on_end_run():
 	main_menu()
 
 
 func _on_next_level():
-	pass
+	next_level()

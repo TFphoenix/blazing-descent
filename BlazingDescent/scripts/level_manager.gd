@@ -1,8 +1,6 @@
 extends Node2D
 class_name LevelManager
 
-const PROGRESS_RATE = 0.015
-
 # Scene references
 @export var hud: Control
 @export var background: Node
@@ -15,6 +13,7 @@ signal next_level
 var level_ended = false
 
 # Atmospheres
+@export var progress_rate = 0.02
 @export var atmospheres = [
 	{
 		'threshold': 0.0,
@@ -45,7 +44,7 @@ func _ready():
 
 func _process(delta):
 	# Update progress
-	progress += PROGRESS_RATE * delta
+	progress += progress_rate * delta
 	
 	# Update overheat
 	overheat += atmospheres[current_atmosphere]['overheat_rate'] * delta

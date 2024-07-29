@@ -16,6 +16,7 @@ script = ExtResource("1_fls0v")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
 spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner")]
+progress_rate = 0.05
 
 [node name="Background" parent="." instance=ExtResource("2_kkt0t")]
 scale = Vector2(0.25, 0.25)
