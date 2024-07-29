@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_kkt0t"]
 [ext_resource type="Script" path="res://scripts/environment/background.gd" id="3_tto66"]
 [ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_8ymtb"]
-[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/spawnables/spawner.tscn" id="5_fcake"]
-[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/spawnables/asteroid.tscn" id="6_udpvu"]
-[ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="7_5hvb2"]
+[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/spawnables/spawner.tscn" id="5_6wfuc"]
+[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/spawnables/asteroid.tscn" id="6_1uthe"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="7_jnyls"]
+[ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="7_mg2mt"]
 
 [node name="Level1" type="Node2D"]
 
@@ -33,20 +33,20 @@ threshold = 200
 
 [node name="Spawners" type="Node2D" parent="."]
 
-[node name="AsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_fcake")]
+[node name="AsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_6wfuc")]
 origin = NodePath("../../Target")
 should_spawn = true
 spawn_rate = 0.4
 spawn_iteration_max_entities = 2
-entity_scene = ExtResource("6_udpvu")
+entity_scene = ExtResource("6_1uthe")
 entity_lifespan = 7.0
 
-[node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_fcake")]
+[node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_6wfuc")]
 origin = NodePath("../../Target")
 should_spawn = true
 spawn_rate = 5.0
 spawn_iteration_max_entities = 1
-entity_scene = ExtResource("7_5hvb2")
+entity_scene = ExtResource("7_mg2mt")
 entity_lifespan = 7.0
 
 [node name="HUD" parent="." instance=ExtResource("7_jnyls")]

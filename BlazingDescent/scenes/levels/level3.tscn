@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm6gah1v37gvr"]
+
+[ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_c7gs3"]
+[ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_8qw0n"]
+[ext_resource type="Script" path="res://scripts/environment/background.gd" id="3_akjct"]
+[ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_1gp2o"]
+[ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/spawnables/spawner.tscn" id="5_dqyrd"]
+[ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/spawnables/asteroid.tscn" id="6_ju5ee"]
+[ext_resource type="PackedScene" uid="uid://86hgqvpuq84x" path="res://scenes/spawnables/big_asteroid.tscn" id="7_1fcl3"]
+[ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="8_uhe38"]
+[ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="9_h8kp3"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("hud", "background", "spawners")]
+script = ExtResource("1_c7gs3")
+hud = NodePath("../HUD")
+background = NodePath("../Background")
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner")]
+progress_rate = 0.03
+atmospheres = [{
+"overheat_rate": 0.01,
+"threshold": 0.0
+}, {
+"overheat_rate": 0.02,
+"threshold": 0.5
+}, {
+"overheat_rate": 0.03,
+"threshold": 0.75
+}]
+
+[node name="Background" parent="." instance=ExtResource("2_8qw0n")]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("3_akjct")
+zoom_speed = 10
+
+[node name="PlayerShip" parent="." node_paths=PackedStringArray("level_manager", "target") instance=ExtResource("4_1gp2o")]
+position = Vector2(400, 2.08165e-12)
+level_manager = NodePath("../LevelManager")
+target = NodePath("../Target")
+threshold = 200
+
+[node name="Target" type="Marker2D" parent="."]
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="AsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_dqyrd")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 0.3
+spawn_iteration_max_entities = 4
+entity_scene = ExtResource("6_ju5ee")
+entity_lifespan = 7.0
+entity_min_speed = 250.0
+entity_max_speed = 400.0
+
+[node name="BigAsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_dqyrd")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 2.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("7_1fcl3")
+entity_lifespan = 7.0
+entity_max_speed = 250.0
+
+[node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_dqyrd")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 5.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("8_uhe38")
+
+[node name="HUD" parent="." instance=ExtResource("9_h8kp3")]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0

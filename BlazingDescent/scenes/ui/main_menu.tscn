@@ -81,14 +81,14 @@ autoplay = "planet_3"
 [node name="Planet4" type="AnimatedSprite2D" parent="Planets"]
 position = Vector2(1368, -16)
 sprite_frames = ExtResource("3_i4mjr")
-animation = &"planet_1"
-autoplay = "planet_1"
+animation = &"planet_4"
+autoplay = "planet_4"
 
 [node name="Planet5" type="AnimatedSprite2D" parent="Planets"]
 position = Vector2(1749, -213)
 sprite_frames = ExtResource("3_i4mjr")
-animation = &"planet_1"
-autoplay = "planet_1"
+animation = &"planet_5"
+autoplay = "planet_5"
 
 [node name="Ship" type="Node2D" parent="."]
 position = Vector2(0, -232)
