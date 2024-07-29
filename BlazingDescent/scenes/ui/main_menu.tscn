@@ -1,7 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://b28jrk7v4sfe5"]
+[gd_scene load_steps=11 format=3 uid="uid://b28jrk7v4sfe5"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_jucgy"]
 [ext_resource type="Texture2D" uid="uid://ckwnk4mob57mg" path="res://assets/background/space_2.png" id="2_7wprp"]
+[ext_resource type="SpriteFrames" uid="uid://ny6lgfmgwiek" path="res://assets/planets/planets.tres" id="3_i4mjr"]
+[ext_resource type="Texture2D" uid="uid://dpur7fxsdk8tf" path="res://assets/ships/exhaust_01a.png" id="4_nor7r"]
+[ext_resource type="Texture2D" uid="uid://d1jp32inu3mpr" path="res://assets/ships/exhaust_01b.png" id="5_1ysnm"]
+[ext_resource type="Texture2D" uid="uid://bwly53xmf4uu4" path="res://assets/ships/ship_1_right.png" id="6_trcte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lse3m"]
+atlas = ExtResource("4_nor7r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ogm"]
+atlas = ExtResource("5_1ysnm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2750l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lse3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ogm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ephdw"]
 font_size = 40
@@ -29,6 +55,54 @@ offset_bottom = 484.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7wprp")
+
+[node name="Planets" type="Node2D" parent="."]
+position = Vector2(-950, 169)
+
+[node name="Planet1" type="AnimatedSprite2D" parent="Planets"]
+position = Vector2(178, -228)
+sprite_frames = ExtResource("3_i4mjr")
+animation = &"planet_1"
+autoplay = "planet_1"
+
+[node name="Planet2" type="AnimatedSprite2D" parent="Planets"]
+position = Vector2(537, -14)
+sprite_frames = ExtResource("3_i4mjr")
+animation = &"planet_2"
+autoplay = "planet_2"
+
+[node name="Planet3" type="AnimatedSprite2D" parent="Planets"]
+position = Vector2(952, 170)
+scale = Vector2(0.536458, 0.536458)
+sprite_frames = ExtResource("3_i4mjr")
+animation = &"planet_3"
+autoplay = "planet_3"
+
+[node name="Planet4" type="AnimatedSprite2D" parent="Planets"]
+position = Vector2(1368, -16)
+sprite_frames = ExtResource("3_i4mjr")
+animation = &"planet_1"
+autoplay = "planet_1"
+
+[node name="Planet5" type="AnimatedSprite2D" parent="Planets"]
+position = Vector2(1749, -213)
+sprite_frames = ExtResource("3_i4mjr")
+animation = &"planet_1"
+autoplay = "planet_1"
+
+[node name="Ship" type="Node2D" parent="."]
+position = Vector2(0, -232)
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ship"]
+position = Vector2(-71, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2750l")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+texture = ExtResource("6_trcte")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

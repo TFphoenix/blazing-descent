@@ -1,6 +1,6 @@
 extends Node2D
 
-const ZOOM_STEP = 0.0001
+const ZOOM_STEP = 0.01
 
 @export var initial_scale = 0.25
 @export var zoom_speed = 100

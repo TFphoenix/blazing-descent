@@ -57,7 +57,6 @@ func _process(delta):
 	if next_atmosphere < atmospheres.size() and progress >= atmospheres[next_atmosphere]['threshold']:
 		current_atmosphere = next_atmosphere
 		next_atmosphere += 1
-		
 
 
 func on_collision(type: Const.CollisionType):

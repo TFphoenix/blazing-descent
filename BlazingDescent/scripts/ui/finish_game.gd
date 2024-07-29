@@ -9,7 +9,7 @@ signal main_menu
 func _ready():
 	var time = Static.time
 	var m = int(floor(time / 60))
-	var s = int(floor(time))
+	var s = int(floor(time)) % 60
 	var ms = int(time * 1000) % 1000
 	label_timer.text = TEXT_TIMER % [m, s, ms]
 

@@ -26,7 +26,7 @@ func update_progress(progress: float):
 
 func update_timer(time: float):
 	var m = int(floor(time / 60))
-	var s = int(floor(time))
+	var s = int(floor(time)) % 60
 	var ms = int(time * 1000) % 1000
 	label_timer.text = TEXT_TIMER % [m, s, ms]
 

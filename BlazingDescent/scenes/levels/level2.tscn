@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkhx4ewinwqw3"]
+[gd_scene load_steps=10 format=3 uid="uid://bkhx4ewinwqw3"]
 
 [ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_hn87g"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_d4hxf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/objects/spawner.tscn" id="5_thuqu"]
 [ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/objects/asteroid.tscn" id="6_moykx"]
 [ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/objects/repair_kit.tscn" id="7_olwoh"]
+[ext_resource type="PackedScene" uid="uid://86hgqvpuq84x" path="res://scenes/objects/big_asteroid.tscn" id="7_yk1rc"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="8_1doim"]
 
 [node name="Level2" type="Node2D"]
@@ -15,7 +16,7 @@
 script = ExtResource("1_hn87g")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
-spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner")]
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner")]
 atmospheres = [{
 "overheat_rate": 0.01,
 "threshold": 0.0
@@ -30,7 +31,7 @@ atmospheres = [{
 [node name="Background" parent="." instance=ExtResource("2_d4hxf")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("3_jrtoh")
-zoom_speed = 800
+zoom_speed = 8
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("level_manager", "target") instance=ExtResource("4_1sx1e")]
 position = Vector2(400, 2.08165e-12)
@@ -50,6 +51,16 @@ entity_scene = ExtResource("6_moykx")
 entity_lifespan = 7.0
 entity_min_speed = 200.0
 entity_max_speed = 350.0
+
+[node name="BigAsteroidsSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_thuqu")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 3.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("7_yk1rc")
+entity_lifespan = 7.0
+entity_min_speed = 100.0
+entity_max_speed = 200.0
 
 [node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_thuqu")]
 origin = NodePath("../../Target")
