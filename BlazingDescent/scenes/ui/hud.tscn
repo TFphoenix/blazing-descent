@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bylnk5ku5vrtg"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_jdkka"]
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_jdkka"]
 [ext_resource type="Texture2D" uid="uid://bta8x1okbmfds" path="res://assets/ui/overheat_under.png" id="2_bk8k5"]
 [ext_resource type="Texture2D" uid="uid://h6uls85xw6gu" path="res://assets/ui/overheat_progress.png" id="3_ct4dx"]
 

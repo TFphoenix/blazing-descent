@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkhx4ewinwqw3"]
 
-[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_hn87g"]
+[ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_hn87g"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_d4hxf"]
-[ext_resource type="Script" path="res://scripts/background.gd" id="3_jrtoh"]
+[ext_resource type="Script" path="res://scripts/environment/background.gd" id="3_jrtoh"]
 [ext_resource type="PackedScene" uid="uid://mwy4myk2tlx5" path="res://scenes/player/player_ship.tscn" id="4_1sx1e"]
 [ext_resource type="PackedScene" uid="uid://debgrxtrsw06h" path="res://scenes/objects/spawner.tscn" id="5_thuqu"]
 [ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/objects/asteroid.tscn" id="6_moykx"]
