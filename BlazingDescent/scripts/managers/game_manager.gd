@@ -4,13 +4,20 @@ class_name GameManager
 # IMPORTANT: Main menu should also be levels[0] and FinishGame levels[size-1]
 @export var levels: Array[PackedScene]
 
+# Scene Management
 var current_level = 0
 var current_scene: Node
 var hud: Node
 var level_manager: Node
 
+# Game State
 var time = 0.0
 var game_running = false
+
+# Music
+@onready var music_stream = $"../MusicStream"
+const MUSIC_MENU = preload("res://assets/music/music_menu.mp3")
+const MUSIC_GAME = preload("res://assets/music/music_game.mp3")
 
 
 func _ready():
@@ -38,6 +45,17 @@ func main_menu():
 	current_scene = levels[current_level].instantiate()
 	add_child(current_scene)
 	current_scene.start_game.connect(_on_start_game)
+	
+	music_stream.stream = MUSIC_MENU
+	music_stream.play()
+
+
+func end_menu():
+	game_running = false
+	current_scene.main_menu.connect(_on_end_run)
+	
+	music_stream.stream = MUSIC_MENU
+	music_stream.play()
 
 
 func next_level():
@@ -47,9 +65,7 @@ func next_level():
 	add_child(current_scene)
 	
 	# Last level (FinishGame scene)
-	if current_level == levels.size() - 1:
-		game_running = false
-		current_scene.main_menu.connect(_on_end_run)
+	if current_level == levels.size() - 1: end_menu()
 	
 	hud = current_scene.get_node("HUD")
 	if hud: hud.update_level(current_level)
@@ -59,6 +75,9 @@ func next_level():
 		level_manager.end_run.connect(_on_end_run)
 		level_manager.next_level.connect(_on_next_level)
 		level_manager.level_idx = current_level
+		
+	music_stream.stream = MUSIC_GAME
+	music_stream.play()
 
 
 func _on_end_run():

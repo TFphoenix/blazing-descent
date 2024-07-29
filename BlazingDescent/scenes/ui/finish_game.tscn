@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bylvwxtbypcc1"]
+[gd_scene load_steps=5 format=3 uid="uid://bylvwxtbypcc1"]
 
 [ext_resource type="Texture2D" uid="uid://ckwnk4mob57mg" path="res://assets/background/space_2.png" id="1_ntno4"]
 [ext_resource type="Script" path="res://scripts/ui/finish_game.gd" id="1_xqfk1"]
@@ -7,6 +7,9 @@
 font_size = 40
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxha1"]
+font_size = 20
 
 [node name="FinishGame" type="Control"]
 layout_mode = 3
@@ -49,7 +52,7 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Total Landing Time"
-label_settings = SubResource("LabelSettings_1oflo")
+label_settings = SubResource("LabelSettings_yxha1")
 horizontal_alignment = 1
 
 [node name="Label_Timer" type="Label" parent="CenterContainer/VBoxContainer"]

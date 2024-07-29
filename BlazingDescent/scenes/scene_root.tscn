@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://be3cirn3e38bj"]
+[gd_scene load_steps=10 format=3 uid="uid://be3cirn3e38bj"]
 
 [ext_resource type="Script" path="res://scripts/managers/game_manager.gd" id="1_8sjji"]
 [ext_resource type="PackedScene" uid="uid://b28jrk7v4sfe5" path="res://scenes/ui/main_menu.tscn" id="2_4let8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bylvwxtbypcc1" path="res://scenes/ui/finish_game.tscn" id="5_lfdq4"]
 [ext_resource type="PackedScene" uid="uid://da4bsysmp1y3b" path="res://scenes/levels/level4.tscn" id="6_dhiwl"]
 [ext_resource type="PackedScene" uid="uid://cu1fbp8os0jjb" path="res://scenes/levels/level5.tscn" id="7_yr0lt"]
+[ext_resource type="AudioStream" uid="uid://dvl6u0j8cx281" path="res://assets/music/music_menu.mp3" id="9_3oygs"]
 
 [node name="RootScene" type="Node2D"]
 
@@ -16,3 +17,6 @@ script = ExtResource("1_8sjji")
 levels = Array[PackedScene]([ExtResource("2_4let8"), ExtResource("2_6fp1s"), ExtResource("4_o4l1u"), ExtResource("5_5j6w6"), ExtResource("6_dhiwl"), ExtResource("7_yr0lt"), ExtResource("5_lfdq4")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MusicStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_3oygs")

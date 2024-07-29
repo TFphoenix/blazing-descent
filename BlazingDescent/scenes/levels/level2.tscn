@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkhx4ewinwqw3"]
+[gd_scene load_steps=11 format=3 uid="uid://bkhx4ewinwqw3"]
 
 [ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_hn87g"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_d4hxf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://86hgqvpuq84x" path="res://scenes/spawnables/big_asteroid.tscn" id="7_plro4"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="8_1doim"]
 [ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="8_vqno6"]
+[ext_resource type="PackedScene" uid="uid://diu17l5finy3s" path="res://scenes/spawnables/speed_boost.tscn" id="9_vh25i"]
 
 [node name="Level2" type="Node2D"]
 
@@ -16,7 +17,7 @@
 script = ExtResource("1_hn87g")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
-spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner")]
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner"), NodePath("../Spawners/SpeedBoostSpawner")]
 progress_rate = 0.04
 atmospheres = [{
 "overheat_rate": 0.01,
@@ -69,9 +70,26 @@ should_spawn = true
 spawn_rate = 5.0
 spawn_iteration_max_entities = 1
 entity_scene = ExtResource("8_vqno6")
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 150.0
+
+[node name="SpeedBoostSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_jfex2")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 6.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("9_vh25i")
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 150.0
 
 [node name="HUD" parent="." instance=ExtResource("8_1doim")]
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+
+[node name="SFXStream_Collision" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SFXStream_Ship" type="AudioStreamPlayer2D" parent="."]

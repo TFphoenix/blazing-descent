@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm6gah1v37gvr"]
+[gd_scene load_steps=11 format=3 uid="uid://bm6gah1v37gvr"]
 
 [ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_c7gs3"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_8qw0n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://86hgqvpuq84x" path="res://scenes/spawnables/big_asteroid.tscn" id="7_1fcl3"]
 [ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="8_uhe38"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="9_h8kp3"]
+[ext_resource type="PackedScene" uid="uid://diu17l5finy3s" path="res://scenes/spawnables/speed_boost.tscn" id="9_yk2hn"]
 
 [node name="Level2" type="Node2D"]
 
@@ -16,7 +17,7 @@
 script = ExtResource("1_c7gs3")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
-spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner")]
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/BigAsteroidsSpawner"), NodePath("../Spawners/SpeedBoostSpawner")]
 progress_rate = 0.03
 atmospheres = [{
 "overheat_rate": 0.01,
@@ -66,12 +67,29 @@ entity_max_speed = 250.0
 [node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_dqyrd")]
 origin = NodePath("../../Target")
 should_spawn = true
-spawn_rate = 5.0
+spawn_rate = 4.0
 spawn_iteration_max_entities = 1
 entity_scene = ExtResource("8_uhe38")
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 150.0
+
+[node name="SpeedBoostSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_dqyrd")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 5.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("9_yk2hn")
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 150.0
 
 [node name="HUD" parent="." instance=ExtResource("9_h8kp3")]
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+
+[node name="SFXStream_Collision" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SFXStream_Ship" type="AudioStreamPlayer2D" parent="."]

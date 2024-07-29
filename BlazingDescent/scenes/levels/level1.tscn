@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://03jbb45epl4c"]
+[gd_scene load_steps=10 format=3 uid="uid://03jbb45epl4c"]
 
 [ext_resource type="Script" path="res://scripts/managers/level_manager.gd" id="1_fls0v"]
 [ext_resource type="PackedScene" uid="uid://dv3310yqnj1qf" path="res://scenes/environment/background.tscn" id="2_kkt0t"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://biecpdyfl0mr7" path="res://scenes/spawnables/asteroid.tscn" id="6_1uthe"]
 [ext_resource type="PackedScene" uid="uid://bylnk5ku5vrtg" path="res://scenes/ui/hud.tscn" id="7_jnyls"]
 [ext_resource type="PackedScene" uid="uid://deea4scy76i2d" path="res://scenes/spawnables/repair_kit.tscn" id="7_mg2mt"]
+[ext_resource type="PackedScene" uid="uid://diu17l5finy3s" path="res://scenes/spawnables/speed_boost.tscn" id="8_0xfhi"]
 
 [node name="Level1" type="Node2D"]
 
@@ -15,7 +16,7 @@
 script = ExtResource("1_fls0v")
 hud = NodePath("../HUD")
 background = NodePath("../Background")
-spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner")]
+spawners = [NodePath("../Spawners/AsteroidsSpawner"), NodePath("../Spawners/RepairKitSpawner"), NodePath("../Spawners/SpeedBoostSpawner")]
 progress_rate = 0.05
 
 [node name="Background" parent="." instance=ExtResource("2_kkt0t")]
@@ -44,13 +45,29 @@ entity_lifespan = 7.0
 [node name="RepairKitSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_6wfuc")]
 origin = NodePath("../../Target")
 should_spawn = true
-spawn_rate = 5.0
+spawn_rate = 6.0
 spawn_iteration_max_entities = 1
 entity_scene = ExtResource("7_mg2mt")
-entity_lifespan = 7.0
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 100.0
+
+[node name="SpeedBoostSpawner" parent="Spawners" node_paths=PackedStringArray("origin") instance=ExtResource("5_6wfuc")]
+origin = NodePath("../../Target")
+should_spawn = true
+spawn_rate = 7.0
+spawn_iteration_max_entities = 1
+entity_scene = ExtResource("8_0xfhi")
+entity_lifespan = 10.0
+entity_min_speed = 100.0
+entity_max_speed = 100.0
 
 [node name="HUD" parent="." instance=ExtResource("7_jnyls")]
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+
+[node name="SFXStream_Collision" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SFXStream_Ship" type="AudioStreamPlayer2D" parent="."]

@@ -20,12 +20,14 @@
 
 ## 🆎 Fonts
 
-...
+... -->
 
 ## 🔊 SFX
 
-...
+- The Eagle Has Landed by jjwallace -- https://freesound.org/s/392212/ -- License: Creative Commons 0
+- landing reverb.wav by awrecording.it -- https://freesound.org/s/501701/ -- License: Attribution 4.0
 
-### 🎵 Music
+## 🎵 Music
 
-... -->
+- Retro Platforming by David Fesliyan: https://www.fesliyanstudios.com/royalty-free-music/download/retro-platforming/454
+- 8 Bit Menu by David Renda: https://www.fesliyanstudios.com/royalty-free-music/download/8-bit-menu/287
